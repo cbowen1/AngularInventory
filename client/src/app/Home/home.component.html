@@ -1,26 +1,32 @@
 <header class="header clearfix">
-	<nav>
-		<ul class="nav nav-pills float-right">
-			<li class="nav-item">
-				<a class="nav-link active" href=#> Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href=#>Add</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href=#>Logout</a>
-			</li>	
-		</ul>		
-	</nav>
-
-	<h3 class="text-muted">Angular Inventory App</h3>
+    <nav>
+        <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+                <button type="button" class="btn btn-primary">
+                  Home
+                </button>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                  Add
+                </button>
+            </li>
+            <li class="nav-item">
+                 <button type="button" class="btn btn-link">
+                  Logout
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <h3 class="text-muted">Angular Inventory App</h3>
 </header>
 
 <main role="main">
-  <app-show-post></app-show-post>
-</main>	
+   
+    <app-show-post></app-show-post>
+    
+</main>
 
 <footer class="footer">
     <p>&copy; Cale Bowen 2018</p>
-</footer>	
-				
+</footer>
