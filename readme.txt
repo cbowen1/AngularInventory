@@ -1,3 +1,10 @@
+Startup commands
+Mongod to start DB
+server- node app.js
+client- npm start
+http://localhost:4200
+
+Mongo Commands
 mongo --opens mongo shell
 show collections --shows different collections
 use invDB --switch to invDB
