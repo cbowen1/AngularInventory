@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const mongoose = require('mongoose');
 const url = 'mongodb://localhost/invDB';
+//const url = 'mongodb://cale:test123@ds135444.mlab.com:35444/inv_db'
 const User = require('./model/user'); 
 const Post = require('./model/post');
 
@@ -11,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended : false}))
  
 app.post('/api/user/login', (req, res) => {
 	mongoose.connect(url, function(err){
+		console.log("Connected")
 		if(err) throw err;
 		User.find({
 			username : req.body.username, password : req.body.password
@@ -37,6 +39,24 @@ app.post('/api/post/getAllPost', (req, res) => {
 		if(err) throw err;
 		console.log('Connection established successfully');
 		Post.find({},[],{ sort: {_id: -1 } }, (err, doc) => {
+			if(err) throw err;
+			return res.status(200).json({
+				status: 'success',
+				data: doc
+			})
+		})
+	});
+})
+
+app.post('/api/post/createPost', (req,res) => {
+	mongoose.connect(url, {useMongoClient: true }, function(err){
+		if(err) throw err;
+		console.log('Connection established successfully');
+		const post = new Post({
+			title: req.body.title,
+			description: req.body.description
+		})
+		post.save((err, doc) => {
 			if(err) throw err;
 			return res.status(200).json({
 				status: 'success',
