@@ -1,6 +1,7 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
 import { Post } from '../models/post.model';
 import { AddPostService } from './add-post.service';
+import { CommonService } from '../service/common.service'
 
  
 @Component({
@@ -14,9 +15,8 @@ export class AddPostComponent {
 	public post : Post;
   @ViewChild('closeBtn') closeBtn: ElementRef;
 
- 	constructor(private addPostService: AddPostService) {
+ 	constructor(private addPostService: AddPostService, private commonService : CommonService) {
    		this.post = new Post();
-      this.closeBtn.nativeElement.click();
   	}
 
   	addPost() {
@@ -25,6 +25,7 @@ export class AddPostComponent {
   			this.addPostService.addPost(this.post).subscribe(res =>{
   				console.log('Response: ',res);
           this.closeBtn.nativeElement.click();
+          this.commonService.notifyPostAddition();
   			});
   		}else{
   			alert('Title and Description required');
