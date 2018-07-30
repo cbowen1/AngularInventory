@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild,ElementRef } from '@angular/core';
 import { Post } from '../models/post.model';
 import { AddPostService } from './add-post.service';
+
  
 @Component({
   selector: 'app-add-post',
@@ -11,17 +12,19 @@ import { AddPostService } from './add-post.service';
 export class AddPostComponent {
 
 	public post : Post;
- 	
+  @ViewChild('closeBtn') closeBtn: ElementRef;
+
  	constructor(private addPostService: AddPostService) {
    		this.post = new Post();
+      this.closeBtn.nativeElement.click();
   	}
 
   	addPost() {
   		if(this.post.title && this.post.description){
   			//call the service method to add post
   			this.addPostService.addPost(this.post).subscribe(res =>{
-  				//response from rest API call
   				console.log('Response: ',res);
+          this.closeBtn.nativeElement.click();
   			});
   		}else{
   			alert('Title and Description required');

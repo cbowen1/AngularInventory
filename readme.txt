@@ -21,3 +21,6 @@ db.post.insert(
       description : 'A short explanation, or maybe a count of stuff...who knows'
     }
 )
+
+
+we are on : Creating the REST API for Add Post
