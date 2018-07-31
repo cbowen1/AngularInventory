@@ -5,6 +5,12 @@
       <small> 3 days ago</small>
     </div>
     <p class="mb-1">{{post.description}}</p>
-    <small>read more...</small>
+    <div class="d-flex w-100 justify-content-between">
+    	<small>read more...</small>
+    	<div>
+    		<i tile="Edit" class="fas fa-edit" aria-hidden="true" click="editPost(post)"></i>
+    		<i tile="Delete" class="fas fa-trash-alt" aria-hidden="true"></i>
+    	</div>
+    </div>
   </a>
 </div>
