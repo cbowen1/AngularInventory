@@ -1,4 +1,4 @@
-import { Component,ViewChild,ElementRef } from '@angular/core';
+import { Component,ViewChild,ElementRef, OnInit } from '@angular/core';
 import { Post } from '../models/post.model';
 import { AddPostService } from './add-post.service';
 import { CommonService } from '../service/common.service'
@@ -10,7 +10,7 @@ import { CommonService } from '../service/common.service'
   styleUrls: ['./add-post.component.css'],
   providers: [ AddPostService ]
 })
-export class AddPostComponent {
+export class AddPostComponent implements OnInit {
 
 	public post : Post;
   @ViewChild('closeBtn') closeBtn: ElementRef;
@@ -18,6 +18,13 @@ export class AddPostComponent {
  	constructor(private addPostService: AddPostService, private commonService : CommonService) {
    		this.post = new Post();
   	}
+
+    ngOnInit(){
+      this.commonService.postEdit_Observable.subscribe(res =>{
+        this.post = this.commonService.post_to_be_edited;
+        console.log('Post is ',this.post.id);
+      });
+    }
 
   	addPost() {
   		if(this.post.title && this.post.description){

@@ -33,5 +33,6 @@ export class ShowPostComponent implements OnInit {
 
 	editPost(post: Post){
 		this.commonService.setPostToEdit(post);
+		console.log('post is ', post);
 	}
 }
