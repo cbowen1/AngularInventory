@@ -7,7 +7,6 @@ export class CommonService {
 	
 	public postAdded_Observable = new Subject();
 	public postEdit_Observable = new Subject();
-
 	public post_to_be_edited;
 
 	constructor(){

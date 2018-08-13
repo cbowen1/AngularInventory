@@ -22,19 +22,26 @@ export class AddPostComponent implements OnInit {
     ngOnInit(){
       this.commonService.postEdit_Observable.subscribe(res =>{
         this.post = this.commonService.post_to_be_edited;
-        console.log('Post is ',this.post.id);
+        console.log('Post is ',this.post._id);
       });
     }
 
   	addPost() {
   		if(this.post.title && this.post.description){
-  			//call the service method to add post
-  			this.addPostService.addPost(this.post).subscribe(res =>{
-  				console.log('Response: ',res);
+        if(this.post._id){
+          this.addPostService.updatePost(this.post).subscribe(res => {
+            this.closeBtn.nativeElement.click();
+            this.commonService.notifyPostAddition();
+          });
+        }else{
+          this.addPostService.addPost(this.post).subscribe(res =>{
+          console.log('Response: ',res);
           this.closeBtn.nativeElement.click();
           this.commonService.notifyPostAddition();
-  			});
-  		}else{
+        });
+
+        }
+   		}else{
   			alert('Title and Description required');
   		}
   	}
