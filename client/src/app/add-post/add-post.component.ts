@@ -27,12 +27,14 @@ export class AddPostComponent implements OnInit {
     }
 
   	addPost() {
+      console.log("AddPOST");
   		if(this.post.title && this.post.description){
         if(this.post._id){
           this.addPostService.updatePost(this.post).subscribe(res => {
             this.closeBtn.nativeElement.click();
             this.commonService.notifyPostAddition();
           });
+          this.clearPostMemory();
         }else{
           this.addPostService.addPost(this.post).subscribe(res =>{
           console.log('Response: ',res);
@@ -45,5 +47,11 @@ export class AddPostComponent implements OnInit {
   			alert('Title and Description required');
   		}
   	}
+
+    clearPostMemory() {
+      this.post._id = '';
+      this.post.title = '';
+      this.post.description = '';
+    }
  
 }
