@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ShowPostComponent } from './show-post/show-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { CommonService } from './service/common.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CommonService } from './service/common.service';
     LoginComponent,
     HomeComponent,
     ShowPostComponent,
-    AddPostComponent
+    AddPostComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

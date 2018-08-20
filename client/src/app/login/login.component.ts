@@ -34,4 +34,8 @@ export class LoginComponent {
 			alert('Enter username and password');
 		}
 	}
+
+	logoutUser(){
+		this.loginService.logoutUser(this.user);
+	}
 }

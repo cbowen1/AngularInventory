@@ -23,6 +23,4 @@ db.post.insert(
 )
 
 
-we are on : Creating the REST API for Add Post
-
-NOTE: ADDING DOESN'T WORK
+we are on : Creating the delete blog post api

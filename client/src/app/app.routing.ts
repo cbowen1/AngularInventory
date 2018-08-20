@@ -4,6 +4,7 @@ import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddPostComponent } from './add-post/add-post.component';
+import { HeaderComponent } from './header/header.component';
 
 export const AppRoutes: Routes = [
 	{ path: '', component:LoginComponent },

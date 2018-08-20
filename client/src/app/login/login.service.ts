@@ -15,5 +15,9 @@ export class LoginService {
             password : user.password
         })
     }
+
+    logoutUser(user: User){
+    	console.log('LOGOUT CURRENT USER');
+    }
  
 }
